@@ -39,9 +39,6 @@ public class ElectionServiceImplForProposer implements ElectionServiceForPropose
 	@Autowired
 	private PaxosStoreInf paxosStore;
 
-	// 是否异步通信
-	private boolean asyncFlag = true;
-
 	@Override
 	public Pair<Boolean/* 是否可以进行下个阶段选举 */, Object/* 可以进行下阶段选举的提议值 */> proposalFirstPhase(long round, long num, Object value) {
 		String logStr = "round[" + round + "],num[" + num + "],value[" + value + "]";

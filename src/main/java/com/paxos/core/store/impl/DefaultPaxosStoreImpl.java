@@ -74,14 +74,14 @@ public class DefaultPaxosStoreImpl implements PaxosStoreInf {
 			}
 
 			long maxProposalNumForAcceptor = electionInfo.getMaxAcceptFirstPhaseNum();
-			long maxAcceptNumForAcceptor = electionInfo.getMaxAcceptSecondPhaseNum();
-			Object maxAcceptValueForAcceptor = electionInfo.getMaxAcceptSecondPhaseValue();
+			long maxAcceptNumOfSendPhaseForAcceptor = electionInfo.getMaxAcceptSecondPhaseNum();
+			Object maxAcceptValueOfSendPhaseForAcceptor = electionInfo.getMaxAcceptSecondPhaseValue();
 			if (electionRoundParam < electionInfo.getElectionRound()) {
 				logger.warn(">electionRoundParam less than current electionRound,current electionRound is["
 						+ electionInfo.getElectionRound() + "],and electionRoundParam is [" + electionRoundParam
 						+ "],so give up this election");
-				return new ElectionResponse(CodeInfo.DENY_CODE, maxProposalNumForAcceptor, maxAcceptNumForAcceptor,
-						maxAcceptValueForAcceptor);
+				return new ElectionResponse(CodeInfo.DENY_CODE, maxProposalNumForAcceptor, maxAcceptNumOfSendPhaseForAcceptor,
+						maxAcceptValueOfSendPhaseForAcceptor);
 			}
 
 			/**
@@ -90,8 +90,8 @@ public class DefaultPaxosStoreImpl implements PaxosStoreInf {
 			if (num < maxProposalNumForAcceptor) {
 				logger.warn(">num less than MaxProposalNumForAcceptor,MaxProposalNumForAcceptor is[" + maxProposalNumForAcceptor
 						+ "],and num is [" + num + "],so give up this election");
-				return new ElectionResponse(CodeInfo.DENY_CODE, maxProposalNumForAcceptor, maxAcceptNumForAcceptor,
-						maxAcceptValueForAcceptor);
+				return new ElectionResponse(CodeInfo.DENY_CODE, maxProposalNumForAcceptor, maxAcceptNumOfSendPhaseForAcceptor,
+						maxAcceptValueOfSendPhaseForAcceptor);
 			}
 
 			/**
@@ -100,8 +100,8 @@ public class DefaultPaxosStoreImpl implements PaxosStoreInf {
 			if (num < electionInfo.getMaxAcceptSecondPhaseNum()) {
 				logger.warn(">num less than MaxAcceptNumForAcceptor,MaxAcceptNumForAcceptor is["
 						+ electionInfo.getMaxAcceptSecondPhaseNum() + "],and num is [" + num + "],so give up this election");
-				return new ElectionResponse(CodeInfo.DENY_CODE, maxProposalNumForAcceptor, maxAcceptNumForAcceptor,
-						maxAcceptValueForAcceptor);
+				return new ElectionResponse(CodeInfo.DENY_CODE, maxProposalNumForAcceptor, maxAcceptNumOfSendPhaseForAcceptor,
+						maxAcceptValueOfSendPhaseForAcceptor);
 			}
 
 			electionInfo.setMaxAcceptSecondPhaseNum(num);

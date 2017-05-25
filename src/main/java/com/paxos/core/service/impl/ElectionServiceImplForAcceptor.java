@@ -58,15 +58,6 @@ public class ElectionServiceImplForAcceptor implements ElectionServiceForAccepto
 				electionRoundSaved);
 
 		/**
-		 * 这里检查轮数，如果参数是旧轮数就拒绝，这里如果当前接受者已经学习了当前轮的值就不再接受一阶段提议了
-		 */
-		long paramElectionRound = electionRequest.getElectionRound();
-		if (paramElectionRound <= electionRoundSaved) {
-			logger.error(">==================electionData of firstPhase err,paramElectionRound is less than election of currentMember,");
-			return denyResponse;
-		}
-
-		/**
 		 * 保存一阶段提议号，底层会检查请求提议号与已经保存的一阶段提议号是否合法
 		 */
 		long reqNum = electionRequest.getNum();
@@ -125,16 +116,6 @@ public class ElectionServiceImplForAcceptor implements ElectionServiceForAccepto
 			logger.debug(">==================deny secondPhase election request,current maxAcceptFirstPhaseNum is bigger than num," + logStr
 					+ ",maxAcceptFirstPhaseNum is[" + maxAcceptFirstPhaseNum + "]");
 
-			return denyResponse;
-		}
-
-		/**
-		 * 都符合条件则保存二阶段接受的最大提议号及值
-		 */
-		ElectionResponse saveSecondPhaseRes = paxosStore.saveAcceptSecondPhaseMaxNumAndValueForCurrentMember(electionRoundParam, reqNum,
-				request.getValue());
-		if (CodeInfo.DENY_CODE.equals(saveSecondPhaseRes.getCode())) {
-			logger.debug(">==================deny secondPhase election request,fail save secondPhase num and value," + logStr);
 			return denyResponse;
 		}
 

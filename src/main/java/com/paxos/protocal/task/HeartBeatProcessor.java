@@ -18,7 +18,6 @@ import org.springframework.util.CollectionUtils;
 import com.paxos.core.component.PaxosCoreComponent;
 import com.paxos.core.constants.CodeInfo;
 import com.paxos.core.domain.PaxosMember;
-import com.paxos.core.store.PaxosStoreInf;
 import com.paxos.extrange.DefaultExChangeClient;
 import com.paxos.extrange.DefaultExChrangeServer;
 import com.paxos.extrange.ExchangeClient;
@@ -49,9 +48,6 @@ public class HeartBeatProcessor {
 	private Map<String/* 成员ip+port构成唯一标识 */, ExchangeClient/* 与其它结点的socket连接 */> exchangeClientCacheMap;
 
 	private UpStreamHandler upStreamHandler;
-
-	@Autowired
-	private PaxosStoreInf paxosStore;
 
 	public void stop() {
 		scheduledExecutorService.shutdownNow();
