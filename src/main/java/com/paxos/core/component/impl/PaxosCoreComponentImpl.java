@@ -1,6 +1,7 @@
 package com.paxos.core.component.impl;
 
 import java.util.List;
+import java.util.concurrent.Executors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -27,7 +28,7 @@ import com.paxos.util.PaxosConflictionUtil;
  */
 @Component
 public class PaxosCoreComponentImpl implements PaxosCoreComponent {
-
+	
 	@Autowired
 	private ElectionServiceForProposer electionService;
 
