@@ -267,8 +267,8 @@ public class DefaultPaxosStoreImpl implements PaxosStoreInf {
 
 			int oldStatus = currentMember.getStatus().get();
 			if (expectStatus != null && oldStatus != expectStatus) {
-				logger.error(">updateCurrentMemberStatus err,oldStatus not eq expectStatus,expectStatus[" + expectStatus + "],oldStatus["
-						+ oldStatus + "],updateStatus[" + updateStatus + "]");
+				//logger.error(">updateCurrentMemberStatus err,oldStatus not eq expectStatus,expectStatus[" + expectStatus + "],oldStatus["
+				//		+ oldStatus + "],updateStatus[" + updateStatus + "]");
 				return false;
 			}
 
