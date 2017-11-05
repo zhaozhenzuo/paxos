@@ -30,13 +30,13 @@ public class ElectionNumberGenerator {
 		return new Pair<Long, Long>(proposalRound, resElectionNumber);
 	}
 
-	public static void main(String[] args) {
-		int clusterMemberNum = 5;
-		int currentMemberUniqueProposalSeq = 1;
-		long currentProposalRound = 3;
-
-		long res = ElectionNumberGenerator.getElectionNumberByParam(clusterMemberNum, currentMemberUniqueProposalSeq, currentProposalRound);
-		System.out.println(res);
-	}
+	//public static void main(String[] args) {
+	//	int clusterMemberNum = 5;
+	//	int currentMemberUniqueProposalSeq = 1;
+	//	long currentProposalRound = 3;
+    //
+	//	long res = ElectionNumberGenerator.getElectionNumberByParam(clusterMemberNum, currentMemberUniqueProposalSeq, currentProposalRound);
+	//	System.out.println(res);
+	//}
 
 }

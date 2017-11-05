@@ -28,12 +28,5 @@ public class ByteUtil {
         }
         return intValue;
     }
-    
-    
-    public static void main(String[] args) {
-		int a = 1111;
-		byte[] arr = int2Byte(a);
-		int b = byte2Int(arr);
-		System.out.println(b);
-	}
+
 }

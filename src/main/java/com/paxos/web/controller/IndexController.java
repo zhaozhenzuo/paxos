@@ -2,18 +2,19 @@ package com.paxos.web.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import java.util.concurrent.ConcurrentHashMap;
 
 import com.paxos.core.component.PaxosCoreComponent;
 import com.paxos.core.domain.PaxosMember;
 import com.paxos.protocal.task.HeartBeatProcessor;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class IndexController implements InitializingBean {
 
 	@Autowired
@@ -25,6 +26,8 @@ public class IndexController implements InitializingBean {
 	private static final String GET_INFO_URL = "http://localhost:%s/getLeaderMember";
 
 	private static Map<Integer/* tcp port */, Integer/* http serverPort */> map = new HashMap<Integer, Integer>();
+
+	private static Map<Integer, Integer> cache = new ConcurrentHashMap<>();
 
 	static {
 		map.put(10051, 8081);
@@ -39,9 +42,27 @@ public class IndexController implements InitializingBean {
 		map.put(10060, 8090);
 	}
 
-	public static void main(String[] args) {
-		String s = String.format(GET_INFO_URL, 8087);
-		System.out.println(s);
+	@RequestMapping("/index")
+	@ResponseBody
+	public String index(@RequestParam(required = false) int i) {
+		int res=fibonaacci(i);
+
+		return "index page";
+	}
+
+	public int fibonaacci(int i) {
+		if (i == 0 || i == 1) {
+			return i;
+		}
+		// Java 8 Map接口中新增方法
+		// 首先判断缓存MAP中是否存在指定key的值，如果不存在，会自动调用mappingFunction(key)
+		// 计算key的value，然后将key = value
+		// 放入到缓存Map,java8会使用thread-safe的方式从cache中存取记录。
+		return cache.computeIfAbsent(i, (key) -> {
+			// 函数式接口,key = i,就是传过来的key,函数中的第一个参数
+			System.out.println("Compute fibonaacci " + key);
+			return fibonaacci(key-1) + fibonaacci(key-2);
+		});
 	}
 
 	@RequestMapping("/getLeaderMember")

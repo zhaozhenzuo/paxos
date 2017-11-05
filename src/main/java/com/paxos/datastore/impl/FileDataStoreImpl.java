@@ -133,31 +133,31 @@ public class FileDataStoreImpl implements DataStoreInf {
 		return path + File.separator + fileNameRes;
 	}
 
-	public static void main(String[] args) {
-		ElectionInfo electionInfo = new ElectionInfo();
-		electionInfo.setMaxAcceptFirstPhaseNum(200L);
-		electionInfo.setElectionRoundByValue(2);
-
-		byte[] res = BizSerialAndDeSerialUtil.objectToBytesByByJson(electionInfo);
-
-		FileDataStoreImpl fileDataStoreImpl = new FileDataStoreImpl();
-
-		PaxosConfig paxosConfig = new PaxosConfig();
-		paxosConfig.setDataStorePath("d:\\paxos\\store");
-		paxosConfig.setDataStoreFileName("data.json");
-
-		fileDataStoreImpl.paxosConfig = paxosConfig;
-
-		boolean writeRes = fileDataStoreImpl.writeToStore(res);
-		System.out.println(writeRes);
-
-		byte[] resFromFile = fileDataStoreImpl.read();
-		if (resFromFile != null) {
-			ElectionInfo electionInfoRes = BizSerialAndDeSerialUtil.byteToObjectByJson(resFromFile, ElectionInfo.class);
-			System.out.println(electionInfoRes);
-		}
-
-	}
+	//public static void main(String[] args) {
+	//	ElectionInfo electionInfo = new ElectionInfo();
+	//	electionInfo.setMaxAcceptFirstPhaseNum(200L);
+	//	electionInfo.setElectionRoundByValue(2);
+    //
+	//	byte[] res = BizSerialAndDeSerialUtil.objectToBytesByByJson(electionInfo);
+    //
+	//	FileDataStoreImpl fileDataStoreImpl = new FileDataStoreImpl();
+    //
+	//	PaxosConfig paxosConfig = new PaxosConfig();
+	//	paxosConfig.setDataStorePath("d:\\paxos\\store");
+	//	paxosConfig.setDataStoreFileName("data.json");
+    //
+	//	fileDataStoreImpl.paxosConfig = paxosConfig;
+    //
+	//	boolean writeRes = fileDataStoreImpl.writeToStore(res);
+	//	System.out.println(writeRes);
+    //
+	//	byte[] resFromFile = fileDataStoreImpl.read();
+	//	if (resFromFile != null) {
+	//		ElectionInfo electionInfoRes = BizSerialAndDeSerialUtil.byteToObjectByJson(resFromFile, ElectionInfo.class);
+	//		System.out.println(electionInfoRes);
+	//	}
+    //
+	//}
 
 	@Override
 	public boolean writeToStore(String data) {

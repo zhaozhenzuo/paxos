@@ -52,6 +52,7 @@ public class DefaultFuture implements ResponseFuture {
 		return this.response != null;
 	}
 
+	@Override
 	public Object get() throws Exception {
 		lock.lock();
 		long oldTime = System.currentTimeMillis();
@@ -79,6 +80,7 @@ public class DefaultFuture implements ResponseFuture {
 		return response;
 	}
 
+	@Override
 	public Object get(long timeout) throws Exception {
 		throw new UnsupportedOperationException("暂不支持暂时获取get操作");
 	}

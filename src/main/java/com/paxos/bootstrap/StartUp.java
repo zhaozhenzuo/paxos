@@ -4,14 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.util.CollectionUtils;
-import org.springframework.util.StringUtils;
-
 import com.alibaba.fastjson.JSON;
+
 import com.paxos.config.ElectionInfoLoader;
 import com.paxos.config.PaxosConfig;
 import com.paxos.core.component.PaxosCoreComponent;
@@ -25,8 +19,13 @@ import com.paxos.protocal.task.ElectionProcessor;
 import com.paxos.protocal.task.HeartBeatProcessor;
 import com.paxos.util.IPUtil;
 import com.paxos.util.PaxosMemberComparator;
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
-@Component
+//@Component
 public class StartUp implements InitializingBean {
 
 	private static final Logger logger = Logger.getLogger(StartUp.class);

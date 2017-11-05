@@ -275,7 +275,7 @@ public class ElectionProcessor {
 	private static void writeLog(String data) {
 		RandomAccessFile accessFile = null;
 		try {
-			accessFile = new RandomAccessFile("d:\\paxos\\logs\\out.log", "rw");
+			accessFile = new RandomAccessFile("/Users/zhenzuo.zzz/Documents/temp/out.log", "rw");
 			long length = accessFile.length();
 			accessFile.seek(length);
 
@@ -294,10 +294,10 @@ public class ElectionProcessor {
 
 	}
 
-	public static void main(String[] args) {
-		writeLog("h3 cost");
-		writeLog("h4 cost");
-	}
+	//public static void main(String[] args) {
+	//	writeLog("h3 cost");
+	//	writeLog("h4 cost");
+	//}
 
 	public void stop() {
 		scheduledExecutorService.shutdownNow();

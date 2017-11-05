@@ -52,15 +52,15 @@ public class IPUtil {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
-		String ipStr = "192.168.0.1";
-		long longIp = IPUtil.ipToLong(ipStr);
-		System.out.println("192.168.0.1 的整数形式为：" + longIp);
-		System.out.println("整数" + longIp + "转化成字符串IP地址：" + IPUtil.longToIP(longIp));
-		
-		String ipStr2 = "192.168.14.1";
-		long longIp2 = IPUtil.ipToLong(ipStr2);
-		System.out.println("192.168.14.1 的整数形式为：" + longIp2);
-		System.out.println("整数" + longIp2 + "转化成字符串IP地址：" + IPUtil.longToIP(longIp2));
-	}
+	//public static void main(String[] args) {
+	//	String ipStr = "192.168.0.1";
+	//	long longIp = IPUtil.ipToLong(ipStr);
+	//	System.out.println("192.168.0.1 的整数形式为：" + longIp);
+	//	System.out.println("整数" + longIp + "转化成字符串IP地址：" + IPUtil.longToIP(longIp));
+	//
+	//	String ipStr2 = "192.168.14.1";
+	//	long longIp2 = IPUtil.ipToLong(ipStr2);
+	//	System.out.println("192.168.14.1 的整数形式为：" + longIp2);
+	//	System.out.println("整数" + longIp2 + "转化成字符串IP地址：" + IPUtil.longToIP(longIp2));
+	//}
 }

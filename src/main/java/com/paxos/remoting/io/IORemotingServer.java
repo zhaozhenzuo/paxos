@@ -129,8 +129,8 @@ public class IORemotingServer implements RemotingServer{
 	}
 	
 	
-	public static void main(String[] args) {  
-		IORemotingServer server = new IORemotingServer();  
-		server.start("127.0.0.1", 8888);;  
-	}
+	//public static void main(String[] args) {
+	//	IORemotingServer server = new IORemotingServer();
+	//	server.start("127.0.0.1", 8888);;
+	//}
 }

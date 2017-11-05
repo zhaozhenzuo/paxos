@@ -11,8 +11,8 @@ import com.paxos.remoting.io.IORemotingServer;
 public class IOServerTest {
 
 	
-	public static void main(String[] args) {
-		RemotingServer server = new IORemotingServer();
-		server.start("127.0.0.1", 8888);
-	}
+	//public static void main(String[] args) {
+	//	RemotingServer server = new IORemotingServer();
+	//	server.start("127.0.0.1", 8888);
+	//}
 }

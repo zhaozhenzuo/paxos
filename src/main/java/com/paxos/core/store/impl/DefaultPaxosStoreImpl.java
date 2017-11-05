@@ -265,13 +265,6 @@ public class DefaultPaxosStoreImpl implements PaxosStoreInf {
 				throw new IllegalArgumentException("要更新状态不能为空");
 			}
 
-			int oldStatus = currentMember.getStatus().get();
-			if (expectStatus != null && oldStatus != expectStatus) {
-				//logger.error(">updateCurrentMemberStatus err,oldStatus not eq expectStatus,expectStatus[" + expectStatus + "],oldStatus["
-				//		+ oldStatus + "],updateStatus[" + updateStatus + "]");
-				return false;
-			}
-
 			getCurrentPaxosMember().setStatusValue(updateStatus);
 			return true;
 		} finally {

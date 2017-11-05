@@ -21,36 +21,36 @@ public class PaxosMemberStatusComparator implements Comparator<PaxosMember> {
 
 	}
 
-	public static void main(String[] args) {
-		List<PaxosMember> paxosMemberList = new ArrayList<PaxosMember>();
-
-		PaxosMember m1 = new PaxosMember();
-		m1.setIp("1");
-		m1.setIsUp(true);
-		paxosMemberList.add(m1);
-
-		PaxosMember m2 = new PaxosMember();
-		m2.setIp("2");
-		m2.setIsUp(false);
-		paxosMemberList.add(m2);
-
-		PaxosMember m3 = new PaxosMember();
-		m3.setIp("3");
-		m3.setIsUp(true);
-		paxosMemberList.add(m3);
-		
-		PaxosMember m4 = new PaxosMember();
-		m4.setIp("4");
-		m4.setIsUp(true);
-		paxosMemberList.add(m4);
-
-		Collections.sort(paxosMemberList, new PaxosMemberStatusComparator());
-
-		System.out.println(paxosMemberList.toString());
-
-		for (PaxosMember paxosMember : paxosMemberList) {
-			System.out.println(paxosMember.getIp() + "," + paxosMember.getIsUp());
-		}
-	}
+	//public static void main(String[] args) {
+	//	List<PaxosMember> paxosMemberList = new ArrayList<PaxosMember>();
+    //
+	//	PaxosMember m1 = new PaxosMember();
+	//	m1.setIp("1");
+	//	m1.setIsUp(true);
+	//	paxosMemberList.add(m1);
+    //
+	//	PaxosMember m2 = new PaxosMember();
+	//	m2.setIp("2");
+	//	m2.setIsUp(false);
+	//	paxosMemberList.add(m2);
+    //
+	//	PaxosMember m3 = new PaxosMember();
+	//	m3.setIp("3");
+	//	m3.setIsUp(true);
+	//	paxosMemberList.add(m3);
+	//
+	//	PaxosMember m4 = new PaxosMember();
+	//	m4.setIp("4");
+	//	m4.setIsUp(true);
+	//	paxosMemberList.add(m4);
+    //
+	//	Collections.sort(paxosMemberList, new PaxosMemberStatusComparator());
+    //
+	//	System.out.println(paxosMemberList.toString());
+    //
+	//	for (PaxosMember paxosMember : paxosMemberList) {
+	//		System.out.println(paxosMember.getIp() + "," + paxosMember.getIsUp());
+	//	}
+	//}
 
 }
