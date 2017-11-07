@@ -9,7 +9,6 @@ import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.boot.actuate.endpoint.annotation.Selector;
 import org.springframework.boot.actuate.endpoint.annotation.WriteOperation;
-import org.springframework.stereotype.Component;
 
 /**
  * Created by zhenzuo.zzz on 2017/11/2.
@@ -18,7 +17,6 @@ import org.springframework.stereotype.Component;
  * @date 2017/11/02
  */
 @Endpoint(id = "person")
-@Component
 public class PersonEndpoint {
 
     private final Map<String, Person> people = new HashMap<>();

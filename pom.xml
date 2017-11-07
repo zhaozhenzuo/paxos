@@ -30,12 +30,6 @@
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
-
-		<!--<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-redis</artifactId>
-		</dependency>-->
-
 		<dependency>
 			<groupId>io.netty</groupId>
 			<artifactId>netty-all</artifactId>
@@ -81,6 +75,48 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba.cco.rdc.ttan.cache</groupId>
+			<artifactId>ttan-cache-core</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.taobao.tair</groupId>
+			<artifactId>tair-client</artifactId>
+			<version>2.6.19</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.taobao.tair</groupId>
+			<artifactId>tair-mc-client</artifactId>
+			<version>2.2.20</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.mina</groupId>
+					<artifactId>mina-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
 
 	</dependencies>
 
